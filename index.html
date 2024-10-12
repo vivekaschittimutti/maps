@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Maps API Example</title>
+  <style>
+    /* Basic styling for the map container */
+    #map {
+      height: 100vh; /* Full viewport height */
+      width: 100vw;  /* Full viewport width */
+    }
+
+    /* Ensure the body has no margins or padding to fill the entire screen */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Container where the map will be displayed -->
+  <div id="map"></div>
+
+  <!-- Google Maps API script with your API key and callback function -->
+  <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhvLwQLMlPhgoDKTlxFEk_w8VUM5l6oAY&libraries=places&callback=initMap">
+  </script>
+
+  <script>
+    // This function initializes the map
+    function initMap() {
+      // The location (latitude and longitude) - e.g., New York City
+      const location = { lat: 40.7128, lng: -74.0060 };
+
+      // Create a new map and center it at the location
+      const map = new google.maps.Map(document.getElementById('map'), {
+        center: location,
+        zoom: 12, // Set zoom level (1=World, 20=Building)
+      });
+
+      // Create a marker and set its position
+      const marker = new google.maps.Marker({
+        position: location,
+        map: map,
+        title: "New York City", // Tooltip text for marker
+      });
+    }
+  </script>
+
+</body>
+</html>
